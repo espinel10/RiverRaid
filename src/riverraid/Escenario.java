@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 public class Escenario  extends JPanel{
    private int dx1=100;
-   private int dx2=300;
+   private int dx2=280;
    private int dy1=480;
    private int dy2=0;
    public void paint(Graphics g) {
@@ -27,7 +27,25 @@ public class Escenario  extends JPanel{
    ImageIcon imagen=new ImageIcon(url);
   
     super.paint(g);
-   g.drawImage(imagen.getImage(),dx1,dy1, null);
+    URL url2=this.getClass().getResource("images/grass.png");
+    for (int i=0;i<400;i++){
+            for(int j=0;j<500;j++){
+            if(i<70||i>dx2){
+            g.drawImage(new ImageIcon(url2).getImage(), i, j, null);
+            }
+            
+            
+            }
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+   g.drawImage(imagen.getImage(),200,dy1, null);
    
     
     }

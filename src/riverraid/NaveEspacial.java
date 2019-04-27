@@ -14,11 +14,11 @@ import static javafx.scene.paint.Color.color;
  * @author LENOVO
  */
 public class NaveEspacial {
-   private  int x,y;
+  
     
     public NaveEspacial(int _x,int _y){
-    x=_x;
-    y=_y;
+  
+   
         
     }
 

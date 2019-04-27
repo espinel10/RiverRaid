@@ -5,6 +5,8 @@
  */
 package riverraid;
 
+
+
 /**
  *
  * @author LENOVO
@@ -15,7 +17,8 @@ public class RiverRaid {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Mapa mapa=new Mapa();
+       Mapa.getInstance();
+     
     }
     
 }

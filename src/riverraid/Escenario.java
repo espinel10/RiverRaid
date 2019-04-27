@@ -17,16 +17,17 @@ import javax.swing.*;
  * @author LENOVO
  */
 public class Escenario  extends JPanel{
-   private int dx1=Mapa.maxx/3;
-   private int dx2=Mapa.maxx-Mapa.maxx/3;
-   private int dy=Mapa.maxy;
+   private int dx1=100;
+   private int dx2=300;
+   private int dy1=480;
+   private int dy2=0;
    public void paint(Graphics g) {
    this.setBackground(Color.blue);
    URL url = this.getClass().getResource("images/player.png");
    ImageIcon imagen=new ImageIcon(url);
   
     super.paint(g);
-   g.drawImage(imagen.getImage(),0, 0, null);
+   g.drawImage(imagen.getImage(),dx1,dy1, null);
    
     
     }

@@ -15,8 +15,8 @@ import javax.swing.JFrame;
 public class Mapa  extends JFrame{
 public static final int maxx =400;    
 public static final int maxy=500;    
-private static Mapa instance =null;    
- 
+private static Mapa instance =null;     
+
 private Mapa(){
  super("River Raid");
  this.setVisible(true);
@@ -26,7 +26,8 @@ addWindowListener(new WindowsEvents());
 
 Escenario mimundo=new Escenario();
 add(mimundo);
- 
+
+ MotorDeJuego.getInstance();
  
  }   
 
@@ -47,11 +48,12 @@ add(mimundo);
 
             setSize(maxx+inset.left+inset.right, maxy+inset.top+inset.bottom);
            setLocationRelativeTo(null);
+           MotorDeJuego.iniciar();
         }
     }
-
-
-
+     
+     
+    
 }
 
     

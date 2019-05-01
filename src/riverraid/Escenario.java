@@ -19,11 +19,13 @@ import javax.swing.*;
  * @author LENOVO
  */
 public class Escenario  extends JPanel{
- private static NaveEspacial nave;  
+ private static NaveEspacial nave;
+ private static Barco barco;
  private static Escenario instance =null;
  private Escenario(){
  super();
 nave=new NaveEspacial();
+barco=new Barco(); 
  }
  
  
@@ -43,7 +45,7 @@ nave=new NaveEspacial();
             }
     }
     
-    
+    barco.draw(g);
     nave.draw(g);
     }
     

@@ -15,15 +15,15 @@ import javax.swing.*;
  * @author LENOVO
  */
 public class NaveEspacial {
- public final int dx1=100;
- public final int dx2=280;
+ public final int dx1=98;
+ public final int dx2=260;
  public final int dy1=480;
  public final int dy2=0;
  public  int x;
  public  int y;
     
   public NaveEspacial(){
-   x=200;
+   x=dx1;
    y=dy1; 
    }
   

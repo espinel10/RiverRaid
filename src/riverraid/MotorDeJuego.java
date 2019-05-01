@@ -18,7 +18,7 @@ public class MotorDeJuego {
     
     private static Timer timer;
      private MotorDeJuego() {
-    timer = new Timer(30, new TimerEvent());
+    timer = new Timer(1, new TimerEvent());
     }
     public static void iniciar(){
     timer.start();
@@ -35,7 +35,7 @@ public class MotorDeJuego {
     
      class TimerEvent implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            System.out.println("*");
+           
             Escenario.getInstance().repaint();
         }
 

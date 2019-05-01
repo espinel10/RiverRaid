@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 
 
 public class Mapa  extends JFrame{
+public static boolean finDelJuego=false;    
 public static int TECLA_IZQ = 1;
 public static int TECLA_DER = 2;
 public static int TECLA_UP=3;
@@ -72,10 +73,12 @@ MotorDeJuego.iniciar();
                     break;
                 case KeyEvent.VK_LEFT:
                     teclas_activas = TECLA_IZQ;
+                    Escenario.getNave().x--;
                     System.out.println("izquierda");
                     break;
                 case KeyEvent.VK_RIGHT:
                     teclas_activas = TECLA_DER;
+                    Escenario.getNave().x++;
                     System.out.println("derecha");
                     break;
                     
@@ -87,6 +90,7 @@ MotorDeJuego.iniciar();
                 
                 case KeyEvent.VK_DOWN:
                     teclas_activas=TECLA_DOWN;
+                    Escenario.getNave().y++;
                     System.out.println("abajito");
                     break;
                     

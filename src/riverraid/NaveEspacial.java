@@ -8,6 +8,7 @@ package riverraid;
 import java.awt.Color;
 import java.awt.Graphics;
 import static javafx.scene.paint.Color.color;
+import javax.swing.*;
 
 /**
  *
@@ -25,7 +26,11 @@ public class NaveEspacial {
    x=200;
    y=dy1; 
    }
-  public void draw(Graphics g) {
+  
+  
+  
+  
+    public void draw(Graphics g) {
      g.drawImage(pictures.getInstance().getImages(5).getImage(),x,y, null);
     }
   

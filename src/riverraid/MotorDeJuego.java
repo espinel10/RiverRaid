@@ -18,7 +18,7 @@ public class MotorDeJuego {
     
     private static Timer timer;
      private MotorDeJuego() {
-        timer = new Timer(100, new TimerEvent());
+    timer = new Timer(30, new TimerEvent());
     }
     public static void iniciar(){
     timer.start();
@@ -27,7 +27,7 @@ public class MotorDeJuego {
     timer.stop();
     }
             
-       public static MotorDeJuego getInstance() {
+       public static MotorDeJuego getInstance(){
         if(instance == null)
             instance = new MotorDeJuego();
         return instance;
@@ -35,7 +35,8 @@ public class MotorDeJuego {
     
      class TimerEvent implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-        pictures.nave.y--;
+            System.out.println("*");
+            Escenario.getInstance().repaint();
         }
 
     }

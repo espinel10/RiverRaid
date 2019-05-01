@@ -21,7 +21,7 @@ public class pictures {
        5 jugador 
        6 disparo
     */
-   public static NaveEspacial nave=new NaveEspacial();  
+  
    public static final int cant=7; 
    private static ImageIcon images[];
    private static pictures instance =null;

@@ -1,7 +1,9 @@
 
 
 package riverraid;
-
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -13,6 +15,12 @@ import javax.swing.JFrame;
 
 
 public class Mapa  extends JFrame{
+public static int TECLA_IZQ = 1;
+public static int TECLA_DER = 2;
+public static int TECLA_UP=3;
+public static int TECLA_DOWN=4;        
+public static int TECLA_ESP = 5;
+public int teclas_activas;   
 public static final int maxx =400;    
 public static final int maxy=500;    
 private static Mapa instance =null;     
@@ -23,11 +31,11 @@ private Mapa(){
  this.setResizable(false);
  setDefaultCloseOperation(EXIT_ON_CLOSE);
 addWindowListener(new WindowsEvents());
-
-Escenario mimundo=new Escenario();
-add(mimundo);
-
- MotorDeJuego.getInstance();
+addKeyListener(new KeyEvents());
+Escenario.getInstance();
+add(Escenario.getInstance());
+MotorDeJuego.getInstance();
+MotorDeJuego.iniciar();
  
  }   
 
@@ -48,11 +56,43 @@ add(mimundo);
 
             setSize(maxx+inset.left+inset.right, maxy+inset.top+inset.bottom);
            setLocationRelativeTo(null);
-           MotorDeJuego.iniciar();
+           
         }
     }
-     
-     
+   
+    
+    
+        class KeyEvents extends KeyAdapter{
+        
+        public void keyPressed(KeyEvent e) {
+            switch(e.getKeyCode()){
+                case KeyEvent.VK_SPACE:
+                    teclas_activas = TECLA_ESP;
+
+                    break;
+                case KeyEvent.VK_LEFT:
+                    teclas_activas = TECLA_IZQ;
+                    System.out.println("izquierda");
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    teclas_activas = TECLA_DER;
+                    System.out.println("derecha");
+                    break;
+                    
+                case KeyEvent.VK_UP:
+                    teclas_activas=TECLA_UP;
+                    Escenario.getNave().y--;
+                    System.out.println("arriba");
+                    break;
+                
+                case KeyEvent.VK_DOWN:
+                    teclas_activas=TECLA_DOWN;
+                    System.out.println("abajito");
+                    break;
+                    
+            }
+        } 
+        }
     
 }
 

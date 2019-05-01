@@ -19,8 +19,18 @@ import javax.swing.*;
  * @author LENOVO
  */
 public class Escenario  extends JPanel{
+ private static NaveEspacial nave;  
+ private static Escenario instance =null;
+ private Escenario(){
+ super();
+nave=new NaveEspacial();
+ }
  
-    
+ 
+ 
+ 
+ 
+ 
    public void paint(Graphics g) {
    this.setBackground(Color.blue);
     super.paint(g);
@@ -31,18 +41,21 @@ public class Escenario  extends JPanel{
             g.drawImage(pictures.getInstance().getImages(2).getImage(), i,j, null);
             }
             }
-    
-    
     }
+    
+    
+    nave.draw(g);
+    }
+    
   
-    pictures.nave.draw(g);
- 
-    }
-    
+public static  Escenario getInstance(){
+if(instance ==null)instance=new Escenario();
+return instance;
+}   
    
-   
-   
- 
+public static NaveEspacial getNave(){
+return nave;
+}  
    
    
    

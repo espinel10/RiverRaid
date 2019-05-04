@@ -14,20 +14,23 @@ import javax.swing.Timer;
  *
  * @author LENOVO
  */
-public class Barco {
- public final int dx1=98;
- public final int dx2=260;
- public final int dy1=480;
- public final int dy2=0;
- public  int x;
- public  int y;
- public int direccion;
- public Timer timer;   
- 
- public Barco(){
-direccion=1;     
-x=100;
-y=400;     
+public class Barco extends Rol{
+public int vida=100;  
+public int direccion;
+public Timer timer;   
+
+public Barco(){
+int numero;
+do{
+ numero = (int) (Math.random() * 260) + 98;   
+}while(numero>dx2||numero<dx1);    
+System.out.println(numero);
+if(numero%2==0){
+direccion=1;
+}else{
+direccion=-1;
+}     
+setLocation(numero,0);
 timer =new Timer(1,new ActionListener(){
 public void actionPerformed(ActionEvent e){
 movimientos();
@@ -37,6 +40,10 @@ movimientos();
 timer.start();
  }
     
+public void detener(){
+timer.stop();
+} 
+ 
 public void movimientos(){
 if(direccion==1){
     if(x<dx2){

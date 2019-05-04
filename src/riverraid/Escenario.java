@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -19,13 +20,15 @@ import javax.swing.*;
  * @author LENOVO
  */
 public class Escenario  extends JPanel{
+public static int nivel;
  private static NaveEspacial nave;
- private static Barco barco;
+ private static ArrayList<Barco> barcos;
  private static Escenario instance =null;
  private Escenario(){
  super();
 nave=new NaveEspacial();
-barco=new Barco(); 
+barcos=new ArrayList<Barco>();
+ nivel=100;
  }
  
  
@@ -34,7 +37,8 @@ barco=new Barco();
  
  
    public void paint(Graphics g) {
-   this.setBackground(Color.blue);
+    Balas bala;
+    this.setBackground(Color.blue);
     super.paint(g);
     
     for (int i=0;i<400;i++){
@@ -45,9 +49,24 @@ barco=new Barco();
             }
     }
     
-    barco.draw(g);
-    nave.draw(g);
-    }
+   
+   nave.draw(g);
+   for(int i=0;i<barcos.size();i++){
+   if(barcos.get(i)!=null){
+   barcos.get(i).draw(g);
+   }
+   }
+   
+   for(int k=0;k<nave.balas.size();k++){
+   if(nave.balas.get(k)!=null){
+   nave.balas.get(k).draw(g);
+   }
+   }
+  
+   
+   
+   
+   }
     
   
 public static  Escenario getInstance(){
@@ -58,8 +77,22 @@ return instance;
 public static NaveEspacial getNave(){
 return nave;
 }  
-   
-   
+public static void partida(){
+if(MotorDeJuego.segundos%nivel==0){
+barcos.add(new Barco());
+}    
+
+
+}
+
+public static void juego(){
+for(int i=0;i<barcos.size();i++){
+if(barcos.get(i)!=null){
+barcos.get(i).y++;
+}
+}
+
+}     
    
     
 }

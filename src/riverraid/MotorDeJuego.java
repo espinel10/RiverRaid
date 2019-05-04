@@ -15,16 +15,22 @@ import javax.swing.Timer;
  */
 public class MotorDeJuego {
    private static MotorDeJuego  instance=null;
-    
+   public static int segundos; 
     private static Timer timer;
      private MotorDeJuego() {
-    timer = new Timer(1, new TimerEvent());
+    segundos=0;
+    timer = new Timer(10, new TimerEvent());
     }
     public static void iniciar(){
     timer.start();
     }
     public static void detener(){
     timer.stop();
+    }
+  
+    public void juego(){
+    Escenario.juego();
+    Escenario.partida();
     }
             
        public static MotorDeJuego getInstance(){
@@ -35,7 +41,8 @@ public class MotorDeJuego {
     
      class TimerEvent implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-           
+           segundos++;
+            juego();
             Escenario.getInstance().repaint();
         }
 

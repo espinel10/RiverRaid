@@ -69,7 +69,8 @@ MotorDeJuego.iniciar();
             switch(e.getKeyCode()){
                 case KeyEvent.VK_SPACE:
                     teclas_activas = TECLA_ESP;
-
+                    Escenario.getNave().disparo();
+                     System.out.println("disparo");
                     break;
                 case KeyEvent.VK_LEFT:
                     teclas_activas = TECLA_IZQ;

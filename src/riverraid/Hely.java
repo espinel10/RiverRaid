@@ -12,7 +12,7 @@ import java.awt.Graphics;
  * @author LENOVO
  */
 public class Hely extends Rol{
-
+public int vida=100;  
 public Hely(){
 int numero;
 do{
@@ -23,6 +23,7 @@ setLocation(numero,0);
 }
     public void draw(Graphics g) {
    g.drawImage(pictures.getInstance().getImages(4).getImage(),x,y, null);
+
     }
     
     

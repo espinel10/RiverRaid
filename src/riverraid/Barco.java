@@ -14,8 +14,7 @@ import javax.swing.Timer;
  *
  * @author LENOVO
  */
-public class Barco extends Rol{
-public int vida=100;  
+public class Barco extends Rol{ 
 public int direccion;
 public Timer timer;   
 
@@ -24,7 +23,6 @@ int numero;
 do{
  numero = (int) (Math.random() * 260) + 98;   
 }while(numero>dx2||numero<dx1);    
-System.out.println(numero);
 if(numero%2==0){
 direccion=1;
 }else{
@@ -65,6 +63,10 @@ if(direccion==-1){
  
 public void draw(Graphics g) {
  g.drawImage(pictures.getInstance().getImages(0).getImage(),x,y, null);
+if(y==dy1){
+timer.stop();
+}
+
 }
  
  

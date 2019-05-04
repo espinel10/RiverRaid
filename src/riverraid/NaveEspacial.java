@@ -19,14 +19,8 @@ import javax.swing.*;
 public class NaveEspacial extends Rol{
  
     
- public ArrayList<Balas> balas;  
- /*public final int dx1=98;
- public final int dx2=260;
- public final int dy1=480;
- public final int dy2=0;
- public  int x;
- public  int y;*/
- 
+ public ArrayList<Balas> balas; 
+ public int puntaje=0;
  public void disparo(){
  balas.add(new Balas(x,y));
  }
@@ -43,6 +37,7 @@ balas=new ArrayList <Balas>();
   
     public void draw(Graphics g) {
      g.drawImage(pictures.getInstance().getImages(5).getImage(),x,y, null);
+    //System.out.println(puntaje);
     }
   
   

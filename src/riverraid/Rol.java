@@ -6,6 +6,7 @@
 package riverraid;
 
 import java.awt.Graphics;
+import java.awt.Point;
 
 /**
  *
@@ -18,11 +19,18 @@ public abstract class Rol {
  public final int dy2=0;
  public  int x;
  public  int y;   
+ public int vida=100;
  public Rol(int _x,int _y){
  x=_x;
  y=_y;
  
  }
+ public Point getUbicacion(){
+ Point p;
+ p=new Point(x,y);
+ return p;
+ }
+ 
  public Rol(){
  x=0;
  y=0;

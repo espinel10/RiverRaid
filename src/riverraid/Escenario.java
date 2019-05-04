@@ -84,9 +84,7 @@ obstaculos.add(new Barco());
 if(MotorDeJuego.segundos%(nivel*2)==0){
 obstaculos.add(new Hely());
 }    
-if(MotorDeJuego.segundos%(nivel*4)==0){
-obstaculos.add(new Combustible());
-}    
+  
 
 }
 
@@ -94,6 +92,22 @@ public static void juego(){
 for(int i=0;i<obstaculos.size();i++){
 if(obstaculos.get(i)!=null){
 obstaculos.get(i).y++;
+if(obstaculos.get(i).x==nave.x&&obstaculos.get(i).y==nave.y){
+nave.vida=nave.vida-20;
+}
+
+if(obstaculos.get(i).y==481){
+obstaculos.remove(i);
+System.out.println("objeto eliminado");
+}
+for(int j=0;j<nave.balas.size();j++){
+ if(obstaculos.get(i).getUbicacion()==nave.balas.get(j).getUbicacion()){
+obstaculos.get(i).vida=obstaculos.get(i).vida-20;
+}
+}
+if(obstaculos.get(i).vida==0){
+obstaculos.remove(i);
+}
 }
 }
 

@@ -31,6 +31,10 @@ public class MotorDeJuego {
     public void juego(){
     Escenario.juego();
     Escenario.partida();
+    if(Escenario.getNave().vida==0){
+    timer.stop();
+    }
+    
     }
             
        public static MotorDeJuego getInstance(){
@@ -41,7 +45,8 @@ public class MotorDeJuego {
     
      class TimerEvent implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-           segundos++;
+           
+            segundos++;
             juego();
             Escenario.getInstance().repaint();
         }

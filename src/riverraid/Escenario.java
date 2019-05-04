@@ -22,12 +22,12 @@ import javax.swing.*;
 public class Escenario  extends JPanel{
 public static int nivel;
  private static NaveEspacial nave;
- private static ArrayList<Barco> barcos;
+ private static ArrayList<Rol> obstaculos;
  private static Escenario instance =null;
  private Escenario(){
  super();
 nave=new NaveEspacial();
-barcos=new ArrayList<Barco>();
+obstaculos=new ArrayList<Rol>();
  nivel=100;
  }
  
@@ -51,9 +51,9 @@ barcos=new ArrayList<Barco>();
     
    
    nave.draw(g);
-   for(int i=0;i<barcos.size();i++){
-   if(barcos.get(i)!=null){
-   barcos.get(i).draw(g);
+   for(int i=0;i<obstaculos.size();i++){
+   if(obstaculos.get(i)!=null){
+   obstaculos.get(i).draw(g);
    }
    }
    
@@ -79,16 +79,21 @@ return nave;
 }  
 public static void partida(){
 if(MotorDeJuego.segundos%nivel==0){
-barcos.add(new Barco());
+obstaculos.add(new Barco());
+}
+if(MotorDeJuego.segundos%(nivel*2)==0){
+obstaculos.add(new Hely());
 }    
-
+if(MotorDeJuego.segundos%(nivel*4)==0){
+obstaculos.add(new Combustible());
+}    
 
 }
 
 public static void juego(){
-for(int i=0;i<barcos.size();i++){
-if(barcos.get(i)!=null){
-barcos.get(i).y++;
+for(int i=0;i<obstaculos.size();i++){
+if(obstaculos.get(i)!=null){
+obstaculos.get(i).y++;
 }
 }
 

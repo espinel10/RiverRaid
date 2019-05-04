@@ -13,7 +13,14 @@ import java.awt.Graphics;
  */
 public class Hely extends Rol{
 
-    
+public Hely(){
+int numero;
+do{
+ numero = (int) (Math.random() * 260) + 98;   
+}while(numero>dx2||numero<dx1);    
+
+setLocation(numero,0);
+}
     public void draw(Graphics g) {
    g.drawImage(pictures.getInstance().getImages(4).getImage(),x,y, null);
     }

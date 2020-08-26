@@ -1,2 +1,2 @@
 # RiverRaid
-juego de atari
+clasic game River Raid in java
